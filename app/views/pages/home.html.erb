@@ -1,0 +1,226 @@
+
+<!-- Banner -->
+
+<div class="banner">
+  <div class="banner-content">
+
+		<div class='logo-image'>
+		<%= image_tag("logo.png", alt: "logo-image", class:'img-responsive logo') %>
+		</div>
+
+		<div class='opening-text'>
+			<span class="opening-text-name">Krowdprize</span> The Platform For World-changing Crowdfunded Contests
+		</div>
+		<div class="sub-opening-text"> 
+			Incentivizing human progress one contest at a time 
+		</div>
+
+
+  </div>
+</div>
+
+<!-- Features -->
+
+<div class="big-container">
+
+<div class="container-fluid">
+
+    <div class="mid-text-container">
+        <h1>We create kick-ass contests</h1>
+          <p>Competition is the best way to incentivize progress</p>
+    </div>
+
+
+    <div class="row">
+
+        <div class="service-box col-sm-4">
+            <div class="square animated bounceIn">
+                <%= image_tag('profile.png', id: 'blah', class: 'media-img', alt: 'About') %>
+            </div>
+            <h2>
+                Community
+            </h2>
+            <p>
+                Creates contests and vote for your favorite ones
+            </p>
+        </div>
+
+        <div class="service-box col-sm-4">
+            <div class="square animated bounceIn">
+                <%= image_tag('nudge.png', class: 'media-img', alt: 'About') %>
+            </div>
+            <h2>
+                Funding
+            </h2>
+            <p>
+                Crowdfund prize money and get the top contests up and running  
+            </p>
+        </div>
+
+        <div class="service-box col-sm-4">
+            <div class="square animated bounceIn">
+                <%= image_tag('getnoticed.png', class: 'media-img', alt: 'About') %>
+            </div>
+            <h2>
+                Competition
+            </h2>
+            <p>
+                Browse contests and compete for the top prizes.
+            </p>
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- signup form -->
+
+<div class="subscription-section">
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="newsletter-form-img col-md-4 col-lg-6">
+                <div class="container-form-image">
+                    <%= image_tag('email.png', class: 'subscription-img', alt: 'subscription-image') %>
+                </div>
+            </div>
+
+            <div class="newsletter-form-content col-md-8 col-lg-6">
+                <p>Sign Up For Free</p>
+                <p>Get early access to the revolutionary platform</p>
+            
+                    <div class="form-subscribe">
+                        <%= form_for(@subscription, { :class => 'form-horizontal' }) do |f|  %>
+
+                            <div class="form-inputs subscription-box">
+                                <div class: "form-space">
+                                    <div class: "form-group">
+                                        <%= f.text_field :fname, class: "form-control sub-field", placeholder: "First Name" %>
+                                    </div>
+                                </div>
+                                <div class: "form-space">
+                                    <div class: "form-group">
+                                        <%= f.text_field :lname, class: "form-control sub-field", placeholder:"Last Name" %>
+                                    </div>
+                                </div>
+                                <div class: "form-space">
+                                    <div class: "form-group">
+                                        <%= f.email_field :email, class: "form-control sub-field", placeholder:"Email" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                              <%= f.button :submit, class: "btn btn-default"%>
+                            </div>
+
+                        <% end %>
+
+                    </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- imagebreak -->
+
+<div class="image-break">
+    <div class="mid-text-container">
+        <h1><b>Contests have proven to be the most effective way to incentivize innovation</b></h1>
+          <p><b>Below are some of our favorite examples</b></p>
+    </div>
+
+</div>
+<!--- Examples -->
+
+<div class="example-section">
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="example-img col-md-4 col-lg-6">
+                <div class="container-example-image">
+                    <%= image_tag('airplane3.png', class: 'example-img', alt: 'example-image') %>
+                </div>
+            </div>
+
+            <div class="example-content col-md-8 col-lg-6">
+                <h1>Aviation: The Oertig Prize</h1>
+                <h3>$25,000 reward ($340,067 as of 2014) offered on May 19, 1919, NYC</h3>
+                </br>
+                </br>
+                <p>
+                American Charles Lindbergh completed the first ever cross-atlantic flight flying from New York to Paris in 1927. He became famous world-wide for his achievements. Public interest in air travel bloomed and the aviation industry was born.    
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="example-section2">
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="example-content2 col-md-8 col-lg-6">
+                 <h1>Food Preservation: The Napoleonic Wars Prize</h1>
+                    <h3>12,000 Fracs reward offered by the french government</h3>
+                    </br>
+                    </br>
+                    <p>
+                    Napoleon offered 12,000 francs to improve upon the prevailing food preservation methods of the time. Not surprisingly, the purpose was to better feed his army "when an invaded country was not able or inclined to sell or provide food". Fifteen years later, confectioner Nicolas François Appert claimed the prize. He devised a method involving heating, boiling and sealing food in airtight glass jars — the same basic technology still used to can foods.    
+                    </p>
+            </div>
+
+            <div class="example-img2 col-md-4 col-lg-6">
+                <div class="container-example-image2">
+                    <%= image_tag('food3.png', class: 'example-img2', alt: 'example-image2') %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="example-section">
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="example-img col-md-4 col-lg-6">
+                <div class="container-example-image">
+                    <%= image_tag('cloud.png', class: 'example-img', alt: 'example-image') %>
+                </div>
+            </div>
+
+            <div class="example-content col-md-8 col-lg-6">
+                    <h1>Netflix Prize</h1>
+                    <h3>$1,000,000 open competition for the best collaborative filtering algorithm to predict user ratings for films</h3>
+                    </br>
+                    </br>
+                    <p>
+                    the grand prize of US$1,000,000 was given to the BellKor's Pragmatic Chaos team which bested Netflix's own algorithm for predicting ratings by 10.06%  
+                    </p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
