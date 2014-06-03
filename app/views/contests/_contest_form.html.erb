@@ -1,0 +1,25 @@
+<%= form_for @contest, :html => { :role => 'form', :class => 'new-contest-form' } do |f| %>
+
+	<div class="form-inputs">
+		<div class: "form-group">
+		<%= f.label :title %>
+		<%= f.text_field :title, class: "form-control", placeholder:"Type your update title here" %>
+		</div>
+		<div class: "form-group">
+		<%= f.label :description %>
+	    <%= f.text_field :description, class: "form-control", placeholder:"Type your update here" %>
+		</div>
+		<div class: "form-group">
+		<%= f.label :featured_image %>
+		<%= f.file_field :featured_image %>
+		</div>
+	</div>
+	
+	<div class="form-actions">
+	  <%= f.button :submit, class: "btn btn-default btn-lg" %>
+	</div>
+
+<% end %>
+
+
+</div>

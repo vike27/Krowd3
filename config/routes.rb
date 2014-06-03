@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
+  devise_for :users
+  root 'pages#landing'
 
   resources :subscriptions
+  resources :contests
+
+  match '/home',    to: 'pages#home',    via: 'get'
+  match '/about',   to: 'pages#about',   via: 'get'
+  match '/contact', to: 'pages#contact', via: 'get'
 
 
 

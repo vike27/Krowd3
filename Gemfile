@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'devise'
+
+
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
