@@ -6,6 +6,7 @@ class ContestsController < ApplicationController
   end
 
   def show
+    @contest = Contest.find(params[:id])
   end
 
   def new
@@ -15,9 +16,11 @@ class ContestsController < ApplicationController
   def create
   	@contest = Contest.new(contest_params) 
   	if @contest.save
-  		redirect_to about_path, :notice => 'Project saved successfully'
+      flash[:success] = "Contest created successfully!"
+  		redirect_to @contest
   	else
-  		redirect_to root_path, :notice => 'Project not saved'
+      flash[:danger] = "Contest could not be created"
+  		redirect_to new_contest_path
   	end
   end
 
@@ -32,7 +35,7 @@ class ContestsController < ApplicationController
 
 
   def contest_params
-  	params.require(:contest).permit(:title, :description)
+  	params.require(:contest).permit(:title, :description, :image)
   end
 
 end

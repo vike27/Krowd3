@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603084934) do
+ActiveRecord::Schema.define(version: 20140604100645) do
 
   create_table "contests", force: true do |t|
     t.datetime "created_at"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20140603084934) do
     t.text     "title"
     t.text     "short_description"
     t.text     "description"
+    t.string   "image_uid"
+    t.string   "image_name"
   end
 
   create_table "subscriptions", force: true do |t|

@@ -1,4 +1,4 @@
-<%= form_for @contest, :html => { :role => 'form', :class => 'new-contest-form' } do |f| %>
+<%= form_for @contest, :html => { :role => 'form', :class => 'new-contest-form', :multipart => true } do |f| %>
 
 	<div class="form-inputs">
 		<div class: "form-group">
@@ -10,8 +10,8 @@
 	    <%= f.text_field :description, class: "form-control", placeholder:"Type your update here" %>
 		</div>
 		<div class: "form-group">
-		<%= f.label :featured_image %>
-		<%= f.file_field :featured_image %>
+		<%= f.label :image %>
+		<%= f.file_field :image %>
 		</div>
 	</div>
 	
