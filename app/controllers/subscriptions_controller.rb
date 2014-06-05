@@ -7,10 +7,13 @@ class SubscriptionsController < ApplicationController
 	def create
 		@subscription = Subscription.new(subscription_params)
 		if @subscription.save
+	      	flash[:success] = "You've been signed up! We will let you know when we are ready to launch!"
 			redirect_to root_path
-		end
+		else
+			flash[:danger] = "Could not subscribe"
+	  		redirect_to root_path
+	  	end
 	end
-
 
 
 	def subscription_params

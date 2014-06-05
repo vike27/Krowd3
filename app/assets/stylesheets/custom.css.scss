@@ -9,6 +9,7 @@
 
 .alert {
 	margin-top: 60px;
+	margin-bottom: 0px;
 }
 
 /*----header-----*/
@@ -88,7 +89,7 @@
 
 .banner{
     background-image: image-url('sf.jpg');
-    height: 610px;
+    height: 680px;
 	margin-top: 0px;
     background-attachment:fixed;
     background-size:cover;
@@ -97,8 +98,8 @@
 .banner-content {
 	text-align: center;
 	font-family: 'Open Sans Condensed', sans-serif; 
-	padding-top: 70px;
-	padding-bottom: 100px;
+	padding-top: 150px;
+	padding-bottom: 150px;
 	color: white;
 }
 
@@ -336,6 +337,56 @@
 
 /*------ Show Contest -------*/
 
-.contest-container {
+.contest-name {
+	font-family: 'Lobster', cursive;
+	margin-bottom: 35px;
+	text-align: center;
+	font-size: 25px;
+	border-bottom: 1px solid black;
+	padding-bottom: 20px;
+
+}
+
+.contest-show-container {
+	margin-top: 100px;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.contest-show-content2 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%
+}
+
+
+
+.contest-description {
+	margin-top: 65px;
+}
+
+
+/*------Index Contest-------*/
+
+.contest-index-container {
 	margin-top: 100px;
 }
+
+#contest-tiles {
+    margin: 0 auto;
+}
+
+.box {
+    margin: 5px;
+    width: 300px;
+}
+
+.box img {
+    width: 100%;
+}
+
+.contest-paginate {
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+

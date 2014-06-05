@@ -1,14 +1,25 @@
 <% provide(:title, @contest.title) %>
-<div class="contest-container">
+<div class="container contest-show-container">
 
-      	<div class="contest-title">
-        	<%= @contest.title %>
+	<div class="contest-name">
+        <%= @contest.title %> 
+  	</div>
+
+	<div class="col-md-8 col-sm-8 contest-show-content">
+	  <div class="contest-show-content2">
+
+		<div class="contest-image">
+    		<%= image_tag @contest.image.thumb('600x320').url if @contest.image_stored? %>
     	</div>
-    	<div class="contest-descrition">
+    	
+    	<div class="contest-description">
         	<%= @contest.description %>
     	</div>
-    	<div class="contest-image">
-    		<%= image_tag @contest.image.thumb('400x300').url if @contest.image_stored? %>
-    	</div>
+     </div>
+    </div>
+
+    <div class="col-md-4 col-sm-4">
+    	Stripe box, and other stuff will go here!
+    </div>
 
 </div>

@@ -1,8 +1,20 @@
 This is is Index contests page
+<div class="container contest-index-container">
 
-<% @contests.each do |contest| %>
-<%= contest.title %>
-<%= contest.description %>
-<% end %>
+	<div id="contest-tiles" class="transitions-enabled">
+	  <% @contests.each do |contest| %>
+		<div class="box panel panel-default">
+			<%= image_tag contest.image.thumb('400x500#').url unless contest.image.nil? %>
+			<div class="panel-body">
+				<p><strong><%= contest.title %></strong></p>
+				<p><%= contest.description %></p>
+			</div>
+		</div>
+	  <% end %>        
+	</div>
 
+	<div class="contest-paginate">
+	  <%= will_paginate @contests, renderer: BootstrapPagination::Rails %>
+	</div>
 
+</div>
