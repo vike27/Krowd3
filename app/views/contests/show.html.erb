@@ -4,14 +4,25 @@
 	<div class="contest-name">
         <%= @contest.title %> 
   	</div>
-
+  	
+  	<div class="i-tabs">
+  		<ul class="nav nav-tabs">
+  			<li><%= link_to "Story", '#' %></li>
+	        <li><%= link_to "Updates", '#' %></li>
+	        <li><%= link_to "Comments", '#' %></li>
+	        <li><%= link_to "Funders", '#' %></li>
+	        <li><%= link_to "Gallery", '#' %></li>
+	        <li><%= link_to "Random", '#' %></li>
+	  	</ul>
+  	</div>
+  		
 	<div class="col-md-8 col-sm-8 contest-show-content">
 	  <div class="contest-show-content2">
 
 		<div class="contest-image">
     		<%= image_tag @contest.image.thumb('600x320').url if @contest.image_stored? %>
     	</div>
-    	
+
     	<div class="contest-description">
         	<%= @contest.description %>
     	</div>
@@ -19,7 +30,21 @@
     </div>
 
     <div class="col-md-4 col-sm-4">
-    	Stripe box, and other stuff will go here!
+    	
+    	jQuery(function($) {
+		  $('#payment-form').submit(function(event) {
+		    var $form = $(this);
+
+		    // Disable the submit button to prevent repeated clicks
+		    $form.find('button').prop('disabled', true);
+
+		    Stripe.card.createToken($form, stripeResponseHandler);
+
+		    // Prevent the form from submitting with the default action
+		    return false;
+		  });
+		});
+    	
     </div>
 
 </div>

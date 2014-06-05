@@ -10,6 +10,7 @@ gem 'dragonfly', '~> 1.0.5'
 gem 'masonry-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 
 # Use sqlite3 as the database for Active Record

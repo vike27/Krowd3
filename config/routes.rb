@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :subscriptions
   resources :contests
+  resources :charges
 
   match '/home',    to: 'pages#home',    via: 'get'
   match '/about',   to: 'pages#about',   via: 'get'
