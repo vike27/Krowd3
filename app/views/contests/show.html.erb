@@ -30,21 +30,54 @@
     </div>
 
     <div class="col-md-4 col-sm-4">
-    	
-    	jQuery(function($) {
-		  $('#payment-form').submit(function(event) {
-		    var $form = $(this);
+    	<%= form_for @charge do |f| %>
+    	  <% if @charge.errors.any? %>
+    	  	<div class="error_messages">
+    	  		<h2><%= pluralize(@charge.errors.count, "error") %> prohibited this charge from being saved: </h2>
+    	  		<ul>
+    	  		<% @charge.errors.full_messages.each do |msg| %>
+    	  			<li><%= msg %></li>
+    	  		<% end %>
+    	  		</ul>
+    	  	</div>
+    	  <% end %>
 
-		    // Disable the submit button to prevent repeated clicks
-		    $form.find('button').prop('disabled', true);
+    		<%= f.hidden_field :stripe_card_token %>
+    		<%= f.hidden_field :contest_id %>
+    		<%= f.hidden_field :user_id %>
 
-		    Stripe.card.createToken($form, stripeResponseHandler);
+    		<div class="field">
+			    <%= f.label :amount %>
+			    <%= f.text_field :amount %>
+			</div>
 
-		    // Prevent the form from submitting with the default action
-		    return false;
-		  });
-		});
-    	
+			<% if @charge.stripe_card_token.present? %>
+			  Credit card has been provided.
+			<% else %>
+			  <div class="field">
+			    <%= label_tag :card_number, "Credit Card Number" %>
+			    <%= text_field_tag :card_number, nil, name: nil %>
+			  </div>
+			  <div class="field">
+			    <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+			    <%= text_field_tag :card_code, nil, name: nil %>
+			  </div>
+			  <div class="field">
+			    <%= label_tag :card_month, "Card Expiration" %>
+			    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+			    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+			  </div>
+
+			  <div class="form-actions">
+				  <%= f.button :submit, class: "btn btn-default btn-lg" %>
+			  </div>
+			<% end %>
+			<div id="stripe_error">
+			  <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+			</div>
+
+		<% end %>
+
     </div>
 
 </div>
