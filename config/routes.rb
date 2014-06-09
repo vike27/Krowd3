@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#landing'
 
+
+  post 'charges/new/:id' => 'charges#new', as: 'new_charge'
+
+
+
   resources :subscriptions
   resources :contests
   resources :charges

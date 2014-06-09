@@ -7,7 +7,6 @@ class ContestsController < ApplicationController
 
   def show
     @contest = Contest.find(params[:id])
-    @charge = Charge.new
   end
 
   def new

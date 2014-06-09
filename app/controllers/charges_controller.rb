@@ -1,17 +1,16 @@
 class ChargesController < ApplicationController
 
 	def new
-		@charge = Charge.new(amount: params[:amount])
-		@charge.contest_id = params[:id]
-		@charge.user_id = params[:id]
+	  @contest = Contest.find(params[:id])
+	  @charge = Charge.new(amount: params[:amount])
 	end
 
 	def create
 	  @charge = Charge.new(charges_params)
 	  if @charge.save_with_payment(@charge)
-	    redirect_to @charge, :notice => "Contribution was recorded succesfully!"
+	    redirect_to root_path, :notice => "Contribution was recorded succesfully!"
 	  else
-	    redirect_to root_path
+	    redirect_to root_path, :notice => "Transaction was not able to be recorded"
 	  end
 	end
 
