@@ -7,11 +7,12 @@ class Charge < ActiveRecord::Base
 
 	def save_with_payment(charge)
 	  if valid?
-	    Stripe::Charge.create(
+	    charge = Stripe::Charge.create(
 	      :amount => (charge.amount.to_i)*100,
 	      :currency => "usd",
-	      :card => stripe_card_token);
-	    save
+	      :card => stripe_card_token)
+	    self.stripe_charge_token = charge_id
+	    save!
 	  end
 	rescue Stripe::InvalidRequestError => e
 	  logger.error "Stripe error while creating customer: #{e.message}"

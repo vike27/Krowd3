@@ -1,38 +1,33 @@
 <% content_for :head do %>
 	<%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
 <% end %>
-<%= form_for @charge, :html => { :class => 'form' } do |f| %>
+<%= form_for @charge do |f| %>
 	<div class="form-inputs">
 		<div class="row">
-			<%= f.hidden_field :comtest_id, value: @contest.id  %>
+			<%= f.hidden_field :contest_id  %>
 			<%= f.hidden_field :user_id %>
-			<%= f.hidden_field :transaction_type_id, value: 1  %>
 			<%= f.hidden_field :amount %>
-			<!-- TODO CHANGE THIS ACCORDINGLY  -->
 			<%= f.hidden_field :stripe_card_token %>
 			<div class="small-12 medium-6 large-2 columns">
-				<%= f.label "Amount:", class: "text-right" %>
+				<%= f.label "Amount:" %>
 			</div>
 			<div class="small-12 medium-6 large-10 columns" style="margin-bottom: 0.5rem; margin-top: 0.5rem;">
 				<%= number_to_currency(@charge.amount, :unit => "$") %>
 			</div>
-			<% if @charge.stripe_card_token.present? %>
-			  Credit card has been provided.
-			<% else %>
 			  <div class="small-12 medium-6 large-2 columns">
-			    <%= label_tag :card_number, "Credit Card Number:", class: "text-right" %>
+			    <%= label_tag :card_number, "Credit Card Number:" %>
 			  </div>
 			  <div class="small-12 medium-6 large-10 columns">
-			    <%= text_field_tag :card_number %>
+			    <%= text_field_tag :card_number, nil, name: nil %>
 			  </div>
 			  <div class="small-12 medium-6 large-2 columns">
-			    <%= label_tag :card_code, "Security Code on Card (CVV):", class: "text-right" %>
+			    <%= label_tag :card_code, "Security Code on Card (CVV):" %>
 			  </div>
 			  <div class="small-12 medium-6 large-10 columns end">
-			    <%= text_field_tag :card_code %>
+			    <%= text_field_tag :card_code, nil, name: nil%>
 			  </div>
 			  <div class="small-12 medium-6 large-2 columns">
-			    <%= label_tag :card_month, "Card Expiration:", class: "text-right" %>
+			    <%= label_tag :card_month, "Card Expiration:" %>
 			  </div>
 			  <div class="small-6 medium-3 columns">
 			    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
@@ -40,7 +35,7 @@
 			  <div class="small-6 medium-3 columns">
 			    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
 			  </div>
-			<% end %>
+			
 			<div id="stripe_error">
 			  <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
 			</div>
@@ -48,10 +43,7 @@
 		</div>
 		<div class="row">
 			<div class="form-actions small-9 small-offset-2 columns">
-				<%= button_tag :type => "button", :class => "radius" do  %>
-					<%= link_to "Back", @contest, :style => "color: white" %>
-				<% end %>
-				<%= f.button :Donate, :class => "radius" %>
+				<%= f.submit "Donate" %>
 			</div>
 		</div>
 	</div>

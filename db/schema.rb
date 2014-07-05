@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606084945) do
+ActiveRecord::Schema.define(version: 20140611075630) do
 
   create_table "charges", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "stripe_customer_token"
+    t.string   "stripe_charge_token"
     t.integer  "contest_id"
     t.integer  "user_id"
     t.decimal  "amount"
